@@ -121,7 +121,7 @@ app.controller('fleekCtrl', [
 
 
 	$scope.getTitle = function(text) {
-		return text && text.length ? text : '<i>no title</i>';
+		return text && text.trim().length ? text : '<i>no title</i>';
 	};
 
 
@@ -135,6 +135,15 @@ app.controller('fleekCtrl', [
 	};
 
 
+	$scope.getDate = function(timestamp) {
+		return moment( timestamp ).format('Do MMMM YYYY [at] hh:mm');
+	};
+
+	$scope.getDescription = function(text) {
+		return text && text.trim().length ? text : '<i>no description</i>';
+	};
+
+
 	$scope.showInfo = function(index) {
 
 		var item = $scope.model.data.items[ index ];
@@ -143,10 +152,35 @@ app.controller('fleekCtrl', [
 		$scope.model.post = 'loading';
 		$('#fleek-info').foundation('reveal', 'open');
 
-		$scope.getPhotoInfo(item.link).then(
-			function(response) {
-				$scope.model.post = response.photo;
-			}
-		);
+		if (!item.loaded) {
+
+			// Load the photo's details.
+			$scope.getPhotoInfo(item.link).then(
+				function(response) {
+
+					// Add information to the item:
+					// - the author's username
+					// - any associated tags.
+
+					item.author      = response.photo.owner.username;
+					item.description = response.photo.description._content;
+					item.tags        = [];
+					for (var i in response.photo.tags) {
+						item.tags.push( response.photo.tags[i]._content );
+					}
+
+					// Mark the item as "loaded".
+					item.loaded = true;
+					$scope.model.data.items[ index ] = item;
+
+					// Display the photo's details.
+					$scope.model.post = item;
+				}
+			);
+
+		} else {
+			// Display the already loaded photo's details.
+			$scope.model.post = item;
+		}
 	};
 }]);

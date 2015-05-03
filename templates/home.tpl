@@ -8,6 +8,15 @@
 	<!-- Results from Flickr... -->
 	<div class="results">
 
+		<!--
+			Each result will require:
+			- the photo ID
+			- the image itself
+			- the title
+			- the published date (formatted using moment.js)
+			- a link to the photo author's page on Flickr
+			- a link to the photo's page on Flickr.
+		-->
 		<div class="row" ng-repeat="row in model.data.items track by $index">
 			<!-- Photo on the left... -->
 			<div class="column small-4 medium-3">
@@ -26,12 +35,12 @@
 
 					<!-- Published date. -->
 					<!-- We can use Foundation's pull-* and push* classes to position the date based on the screen size. -->
-					<div class="column small-4 small-push-3 medium-12 medium-push-0">
-						Published: {{ row.published }}
+					<div class="column medium-6 medium-push-3">
+						Published: {{ getDate( row.published ) }}
 					</div>
 
 					<!-- Post's author (as a link to their profile). -->
-					<div class="column small-3 small-pull-4 medium-pull-0">
+					<div class="column small-3 medium-pull-6">
 						<a ng-href="{{ getUserURL( row.author_id ) }}" target="_blank">Post author</a>
 					</div>
 
@@ -47,7 +56,12 @@
 	</div>
 
 
-	<!-- Modal window to display details of a single post. -->
+	<!--
+		Modal window to display details of a single post.
+		Along with the information already fetched, we want to display:
+		- the photo's description
+		- any associated tags
+	-->
 	<div id="fleek-info" class="reveal-modal" data-reveal aria-hidden="true" role="dialog">
 
 		<div class="loading" ng-show="model.post === 'loading'">loading...</div>
@@ -56,29 +70,28 @@
 			<!-- Heading. -->
 			<header class="row">
 				<div class="column medium-9">
-					<h2 ng-bind-html="getTitle( model.post.title._content )"></h2>
+					<h2 ng-bind-html="getTitle( model.post.title )"></h2>
 
 					<!-- Post author. -->
 					<span class="author">
-						<a target="_blank">{{ model.post.owner.username }}</a>
-						<!-- <a ng-href="{{ getPhotosLink( row.link ) }}" target="_blank">Post author</a> -->
+						<a ng-href="{{ getPhotosLink( row.link ) }}" target="_blank">Photo author</a>
 					</span>
 					|
 					<span class="published">
-						Published: {{ model.post.dates.taken }}
+						Published: {{ getDate( model.post.published ) }}
 					</span>
 				</div>
 			</header>
 
 			<div class="row">
 				<div class="column medium-2">
-					<!-- image -->
+					<img ng-src="{{ model.post.media.m }}" alt="{{ model.post.title }} by {{ model.post.author }}">
 				</div>
 				<div class="column medium-10">
-					<p>{{ model.post.description._content || "no description" }}</p>
-					<ul class="tags">
+					<p ng-bind-html="getDescription( model.post.description )"></p>
+					<ul class="tags inline-list">
 						<li ng-repeat="tag in model.post.tags">
-							{{ tag._content }}
+							<a>{{ tag }}</a>
 						</li>
 					</ul>
 				</div>
