@@ -17,21 +17,21 @@
 			- a link to the photo author's page on Flickr
 			- a link to the photo's page on Flickr.
 		-->
-		<div class="row" ng-repeat="row in model.data.items track by $index">
+		<div class="row collapse" ng-repeat="row in model.data.items track by $index">
+
 			<!-- Photo on the left... -->
-			<div class="column small-4 medium-3">
-				<img ng-src="{{ row.media.m }}" alt="{{ row.title }} by {{ row.author }}">
+			<div class="column small-4 medium-3 photo" style="background-image: url({{ row.media.m }});">
 			</div>
 
 			<!-- Details on the right. -->
-			<div class="column small-8 medium-9">
-
-				<!-- Title of the post (links to more info). -->
-				<h2>
-					<a ng-click="showInfo( $index )" ng-bind-html="getTitle(row.title)"></a>
-				</h2>
+			<div class="column small-8 medium-9 details">
 
 				<div class="row">
+
+					<!-- Title of the post (links to more info). -->
+					<h2 class="column">
+						<a ng-click="showInfo( $index )" ng-bind-html="getTitle(row.title)"></a>
+					</h2>
 
 					<!-- Published date. -->
 					<!-- We can use Foundation's pull-* and push* classes to position the date based on the screen size. -->
@@ -40,12 +40,12 @@
 					</div>
 
 					<!-- Post's author (as a link to their profile). -->
-					<div class="column small-3 medium-pull-6">
+					<div class="column small-6 medium-3 medium-pull-6">
 						<a ng-href="{{ getUserURL( row.author_id ) }}" target="_blank">Post author</a>
 					</div>
 
 					<!-- Link to the post. -->
-					<div class="column small-3 end">
+					<div class="column small-6 medium-3 end">
 						<a ng-href="{{ row.link }}" target="_blank">View on Flickr</a>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 
 					<!-- Post author. -->
 					<span class="author">
-						<a ng-href="{{ getPhotosLink( row.link ) }}" target="_blank">Photo author</a>
+						<a ng-href="{{ getUserURL( row.author_id ) }}" target="_blank">Photo author</a>
 					</span>
 					|
 					<span class="published">
@@ -84,10 +84,10 @@
 			</header>
 
 			<div class="row">
-				<div class="column medium-2">
+				<div class="column medium-5">
 					<img ng-src="{{ model.post.media.m }}" alt="{{ model.post.title }} by {{ model.post.author }}">
 				</div>
-				<div class="column medium-10">
+				<div class="column medium-7">
 					<p ng-bind-html="getDescription( model.post.description )"></p>
 					<ul class="tags inline-list">
 						<li ng-repeat="tag in model.post.tags">

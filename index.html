@@ -4,18 +4,26 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>fleek.</title>
-	<link rel="stylesheet" href="bower_components/foundation/css/foundation.css" />
+	<link rel="stylesheet" href="css/fleek.css" />
+	<link href='http://fonts.googleapis.com/css?family=Pacifico|Raleway:700,400' rel='stylesheet' type='text/css'>
 	<script src="bower_components/modernizr/modernizr.js"></script>
 </head>
 <body ng-app="fleek">
 
 <div id="wrapper">
+
 	<!-- Header. -->
-	<header class="row">
-		<div class="column small-6 logo">
-			fleek.
+	<header id="header">
+		<div class="row">
+
+			<!-- Site logo. -->
+			<div id="logo" class="column small-6 logo">
+				fleek.
+			</div>
+
+			<!-- Site menu. -->
+			<div id="menu" class="column small-6"></div>
 		</div>
-		<div class="column small-6 logo"></div>
 	</header>
 
 	<!-- Main content area. -->
@@ -28,7 +36,7 @@
 	</main>
 
 	<!-- Footer. -->
-	<footer>
+	<footer id="footer">
 		<div class="row">
 			<div class="column">
 				&copy; Perfect Zero Labs
