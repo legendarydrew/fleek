@@ -68,8 +68,8 @@
 
 		<div ng-show="model.post !== 'loading'">
 			<!-- Heading. -->
-			<header class="row">
-				<div class="column medium-9">
+			<header class="row collapse">
+				<div class="column medium-10">
 					<h2 ng-bind-html="getTitle( model.post.title )"></h2>
 
 					<!-- Post author. -->
@@ -83,17 +83,23 @@
 				</div>
 			</header>
 
-			<div class="row">
-				<div class="column medium-5">
+			<div class="row collapse">
+
+				<!-- The photo. -->
+				<div class="column medium-4 photo">
 					<img ng-src="{{ model.post.media.m }}" alt="{{ model.post.title }} by {{ model.post.author }}">
 				</div>
-				<div class="column medium-7">
+
+				<!-- Description and any associated tags. -->
+				<div class="column medium-8 details">
 					<p ng-bind-html="getDescription( model.post.description )"></p>
-					<ul class="tags inline-list">
+					<ul class="tags inline-list" ng-show="model.post.tags.length > 0">
+						<li><b>Tags</b></li>
 						<li ng-repeat="tag in model.post.tags">
 							<a>{{ tag }}</a>
 						</li>
 					</ul>
+					<p class="nothing" ng-hide="model.post.tags.length > 0">no tags</p>
 				</div>
 			</div>
 		</div>

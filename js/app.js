@@ -121,6 +121,7 @@ app.controller('fleekCtrl', [
 
 
 	$scope.getTitle = function(text) {
+		text = text.replace('&nbsp;', '');
 		return text && text.trim().length ? text : '<i>no title</i>';
 	};
 
@@ -140,6 +141,7 @@ app.controller('fleekCtrl', [
 	};
 
 	$scope.getDescription = function(text) {
+		text = text.replace('&nbsp;', '');
 		return text && text.trim().length ? text : '<i>no description</i>';
 	};
 
@@ -165,8 +167,8 @@ app.controller('fleekCtrl', [
 					item.author      = response.photo.owner.username;
 					item.description = response.photo.description._content;
 					item.tags        = [];
-					for (var i in response.photo.tags) {
-						item.tags.push( response.photo.tags[i]._content );
+					for (var i in response.photo.tags.tag) {
+						item.tags.push( response.photo.tags.tag[i].raw );
 					}
 
 					// Mark the item as "loaded".

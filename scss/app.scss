@@ -21,80 +21,100 @@ $site-fg-colour-darkest: darken($site-fg-colour, 30);
 
 // Foundation components to include.
 @import
-   "../bower_components/foundation/scss/foundation/components/alert-boxes",
-   "../bower_components/foundation/scss/foundation/components/buttons",
-   "../bower_components/foundation/scss/foundation/components/clearing",
-   "../bower_components/foundation/scss/foundation/components/forms",
-   "../bower_components/foundation/scss/foundation/components/grid",
-   "../bower_components/foundation/scss/foundation/components/labels",
-   "../bower_components/foundation/scss/foundation/components/panels",
-   "../bower_components/foundation/scss/foundation/components/reveal",
-   "../bower_components/foundation/scss/foundation/components/thumbs",
-   "../bower_components/foundation/scss/foundation/components/tooltips",
-   "../bower_components/foundation/scss/foundation/components/type",
-   "../bower_components/foundation/scss/foundation/components/visibility";
+	"../bower_components/foundation/scss/foundation/components/alert-boxes",
+	"../bower_components/foundation/scss/foundation/components/buttons",
+	"../bower_components/foundation/scss/foundation/components/clearing",
+	"../bower_components/foundation/scss/foundation/components/forms",
+	"../bower_components/foundation/scss/foundation/components/grid",
+	"../bower_components/foundation/scss/foundation/components/inline-lists",
+	"../bower_components/foundation/scss/foundation/components/labels",
+	"../bower_components/foundation/scss/foundation/components/panels",
+	"../bower_components/foundation/scss/foundation/components/reveal",
+	"../bower_components/foundation/scss/foundation/components/thumbs",
+	"../bower_components/foundation/scss/foundation/components/tooltips",
+	"../bower_components/foundation/scss/foundation/components/type",
+	"../bower_components/foundation/scss/foundation/components/visibility";
 
 
 body {
-   padding-top: rem-calc(85);
+	padding-top: rem-calc(85);
 }
 
 #header,
 #footer {
-   padding: rem-calc(15);
+	padding: rem-calc(15);
 }
 #header {
-   background: $site-fg-colour;
-   color: $white;
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   z-index: 1;
+	background: $site-fg-colour;
+	color: $white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
 }
 #footer {
-   text-align: right;
+	text-align: right;
 }
 
 #logo {
-   font: rem-calc(32) $logo-font;
+	font: rem-calc(32) $logo-font;
 }
 
 main {
-   background: $site-bg-colour;
-   color: $site-text-colour;
-   padding: rem-calc(20 0);
-   a { font-weight: bold; }
+	background: $site-bg-colour;
+	color: $site-text-colour;
+	padding: rem-calc(20);
+	a { font-weight: bold; }
+}
+
+.nothing {
+	color: lighten($site-text-colour, 20);
+	font-style: italic;
 }
 
 
 // HOME PAGE -------------------------------------------------------------------
 .results {
 
-   > .row {
-      background: $site-fg-colour-lighter;
-      box-shadow: 0 1px 1px transparentize($site-fg-colour-darkest, .25);
-      margin-bottom: rem-calc(20) !important;
-      margin-top: rem-calc(10) !important;
-   }
+	> .row {
+		background: $site-fg-colour-lightest;
+		box-shadow: 0 1px 1px transparentize($site-fg-colour-darkest, .25);
+		margin-bottom: rem-calc(20) !important;
+		margin-top: rem-calc(10) !important;
+	}
 
-   .photo {
-      background: no-repeat 0 50%;
-      background-size: 100% auto;
-      height: 100px
-   }
+	.photo {
+		background: no-repeat 0 50%;
+		background-size: 100% auto;
+		height: 100px
+	}
 
-   .details {
-      h2 {
-         color: $site-fg-colour-dark;
-         margin-right: 2em;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-      }
+	.details {
+		h2 {
+			color: $site-fg-colour-dark;
+			margin-right: 2em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 
-      .row {
-         margin-top: rem-calc(16);
-      }
-   }
+		.row {
+			margin-top: rem-calc(16);
+		}
+	}
+}
+
+
+// MODAL WINDOW ----------------------------------------------------------------
+#fleek-info {
+	color: $site-text-colour;
+
+	header {
+		margin-bottom: rem-calc(10);
+	}
+
+	.details {
+		padding-left: rem-calc(20);
+	}
 }

@@ -516,6 +516,10 @@ label.error { color: #f04124; }
   .pull-10 { position: relative; right: 83.33333%; left: auto; }
   .push-11 { position: relative; left: 91.66667%; right: auto; }
   .pull-11 { position: relative; right: 91.66667%; left: auto; } }
+.inline-list { list-style: none; margin-left: -1.375rem; margin-right: 0; margin: 0 auto 1.0625rem auto; overflow: hidden; padding: 0; }
+.inline-list > li { display: block; float: left; list-style: none; margin-left: 1.375rem; }
+.inline-list > li > * { display: block; }
+
 .label { display: inline-block; font-family: "Raleway", sans-serif; font-weight: normal; line-height: 1; margin-bottom: auto; position: relative; text-align: center; text-decoration: none; white-space: nowrap; padding: 0.25rem 0.5rem 0.25rem; font-size: 0.6875rem; background-color: #AAA; color: #FFF; }
 .label.radius { border-radius: 3px; }
 .label.round { border-radius: 1000px; }
@@ -542,9 +546,9 @@ label.error { color: #f04124; }
 .panel.callout a:not(.button):hover, .panel.callout a:not(.button):focus { color: #929292; }
 .panel.radius { border-radius: 3px; }
 
-.reveal-modal-bg { background: #000000; background: rgba(0, 0, 0, 0.45); bottom: 0; display: none; left: 0; position: fixed; right: 0; top: 0; z-index: 1004; left: 0; }
+.reveal-modal-bg { background: #5d5d5d; background: rgba(93, 93, 93, 0.75); bottom: 0; display: none; left: 0; position: fixed; right: 0; top: 0; z-index: 1004; left: 0; }
 
-.reveal-modal { border-radius: 3px; display: none; position: absolute; top: 0; visibility: hidden; width: 100%; z-index: 1005; left: 0; background-color: #FFF; padding: 1.875rem; border: solid 1px #666666; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
+.reveal-modal { border-radius: 3px; display: none; position: absolute; top: 0; visibility: hidden; width: 100%; z-index: 1005; left: 0; background-color: #f6f6f6; padding: 1.875rem; border: solid 1px #666666; box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
 @media only screen and (max-width: 40em) { .reveal-modal { min-height: 100vh; } }
 .reveal-modal .column, .reveal-modal .columns { min-width: 0; }
 .reveal-modal > :first-child { margin-top: 0; }
@@ -562,7 +566,7 @@ label.error { color: #f04124; }
 .reveal-modal.full { height: 100vh; height: 100%; left: 0; margin-left: 0 !important; max-width: none !important; min-height: 100vh; top: 0; }
 @media only screen and (min-width: 40.0625em) { .reveal-modal.full { left: 0; margin: 0 auto; max-width: 62.5rem; right: 0; width: 100%; } }
 .reveal-modal.toback { z-index: 1003; }
-.reveal-modal .close-reveal-modal { color: #AAAAAA; cursor: pointer; font-size: 2.5rem; font-weight: bold; line-height: 1; position: absolute; top: 0.625rem; right: 1.375rem; }
+.reveal-modal .close-reveal-modal { color: #AAAAAA; cursor: pointer; font-size: 1.125rem; font-weight: bold; line-height: 1; position: absolute; top: 1.25rem; right: 1.25rem; }
 
 /* Image Thumbnails */
 .th { border: solid 4px #FFF; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); display: inline-block; line-height: 0; max-width: 100%; transition: all 200ms ease-out; }
@@ -901,12 +905,18 @@ body { padding-top: 5.3125rem; }
 
 #logo { font: 2rem "Pacifico", cursive; }
 
-main { background: #FFF; color: #222; padding: 1.25rem 0; }
+main { background: #FFF; color: #222; padding: 1.25rem; }
 main a { font-weight: bold; }
 
-.results > .row { background: #dddddd; box-shadow: 0 1px 1px rgba(93, 93, 93, 0.75); margin-bottom: 1.25rem !important; margin-top: 0.625rem !important; }
+.nothing { color: #555555; font-style: italic; }
+
+.results > .row { background: #f6f6f6; box-shadow: 0 1px 1px rgba(93, 93, 93, 0.75); margin-bottom: 1.25rem !important; margin-top: 0.625rem !important; }
 .results .photo { background: no-repeat 0 50%; background-size: 100% auto; height: 100px; }
 .results .details h2 { color: #909090; margin-right: 2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.results .details .row { margin-top: 1.25rem; }
+.results .details .row { margin-top: 1rem; }
+
+#fleek-info { color: #222; }
+#fleek-info header { margin-bottom: 0.625rem; }
+#fleek-info .details { padding-left: 1.25rem; }
 
 /*# sourceMappingURL=fleek.css.map */

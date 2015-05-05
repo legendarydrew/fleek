@@ -1108,11 +1108,11 @@ $anchor-font-color-hover: $site-fg-colour-darker;
 // $include-html-reveal-classes: $include-html-classes;
 
 // We use these to control the style of the reveal overlay.
-// $reveal-overlay-bg: rgba($black, .45);
-// $reveal-overlay-bg-old: $black;
+$reveal-overlay-bg: rgba($site-fg-colour-darkest, .75);
+$reveal-overlay-bg-old: $site-fg-colour-darkest;
 
 // We use these to control the style of the modal itself.
-// $reveal-modal-bg: $white;
+$reveal-modal-bg: $site-fg-colour-lightest;
 // $reveal-position-top: rem-calc(100);
 // $reveal-default-width: 80%;
 // $reveal-max-width: $row-width;
@@ -1120,9 +1120,9 @@ $anchor-font-color-hover: $site-fg-colour-darker;
 // $reveal-box-shadow: 0 0 10px rgba($black,.4);
 
 // We use these to style the reveal close button
-// $reveal-close-font-size: rem-calc(40);
-// $reveal-close-top: rem-calc(10);
-// $reveal-close-side: rem-calc(22);
+$reveal-close-font-size: rem-calc(18);
+$reveal-close-top: rem-calc(20);
+$reveal-close-side: rem-calc(20);
 // $reveal-close-color: $base;
 // $reveal-close-weight: $font-weight-bold;
 
